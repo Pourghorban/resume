@@ -2,13 +2,11 @@
 
 % ============ Fonts ============
 \usepackage{fontspec}
-\usepackage{xepersian}
-\settextfont[Path=fonts/,
-  BoldFont=Vazirmatn-Bold.ttf,
-  ItalicFont=Vazirmatn-Regular.ttf]{Vazirmatn-Regular.ttf}
-\setlatintextfont{Latin Modern Roman}
 
 % ============ Layout ============
+% NOTE: hyperref, titlesec, and enumitem must be loaded before xepersian/bidi
+% below -- TeX Live's bidi enforces this load order as a hard error (MiKTeX
+% does not, which is why this previously went unnoticed locally).
 \usepackage[top=1.6cm,bottom=1.6cm,left=1.7cm,right=1.7cm]{geometry}
 \usepackage{microtype}
 \usepackage{xcolor}
@@ -17,6 +15,13 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{amssymb}
+
+% ============ Persian (must load after the packages above) ============
+\usepackage{xepersian}
+\settextfont[Path=fonts/,
+  BoldFont=Vazirmatn-Bold.ttf,
+  ItalicFont=Vazirmatn-Regular.ttf]{Vazirmatn-Regular.ttf}
+\setlatintextfont{Latin Modern Roman}
 
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
