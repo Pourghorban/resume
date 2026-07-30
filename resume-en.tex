@@ -1,0 +1,212 @@
+\documentclass[10.5pt,a4paper]{article}
+
+% ============ Fonts ============
+\usepackage{fontspec}
+\setmainfont{EB Garamond}
+
+% ============ Layout ============
+\usepackage[top=1.5cm,bottom=1.5cm,left=1.8cm,right=1.8cm]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.0}
+
+% ============ Color ============
+% Single accent color per the design spec; everything else stays black.
+\definecolor{ink}{HTML}{1C2A3D}
+\definecolor{graytext}{HTML}{4A5568}
+\definecolor{lightrule}{HTML}{B8BEC7}
+
+% ============ Section style ============
+% Bold, letterspaced small-caps-style heading with a full-width hairline rule.
+\titleformat{\section}
+  {\fontsize{10.5}{13}\selectfont\bfseries\color{ink}\addfontfeature{LetterSpace=2.5,Letters=SmallCaps}}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{11pt}{0pt}
+\newcommand{\sectionrule}{%
+  \vspace{1pt}\noindent\textcolor{lightrule}{\rule{\linewidth}{0.4pt}}\vspace{5pt}\par%
+}
+
+% ============ Bullet list style ============
+\setlist[itemize]{
+  leftmargin=1.1em,
+  itemsep=1.5pt,
+  topsep=1pt,
+  parsep=0pt,
+  label=\textcolor{ink}{\small$\bullet$}
+}
+\newcommand{\fontsizeitem}{\fontsize{10}{12}\selectfont\linespread{1.1}\selectfont}
+
+% ============ Custom commands for job/project entries ============
+% \entryhead{Organization/Project}{Date}
+\newcommand{\entryhead}[2]{%
+  \noindent{\bfseries\fontsize{11.5}{14}\selectfont #1}\hfill{\fontsize{9}{11}\selectfont\itshape\color{graytext}#2}\par
+}
+% \entrysub{role/location line}
+\newcommand{\entrysub}[1]{%
+  \noindent{\fontsize{10}{12}\selectfont\itshape\color{graytext}#1}\par
+}
+% \entrynote{one-line status note, projects only}
+\newcommand{\entrynote}[1]{%
+  \noindent{\fontsize{9.5}{11}\selectfont\color{graytext}#1}\par
+}
+% \skillline{Category}{comma-separated list} -- plain ATS-friendly line, no bullet
+\newcommand{\skillline}[2]{%
+  \noindent{\fontsize{10}{13}\selectfont{\bfseries #1} --- #2}\par\vspace{2pt}%
+}
+
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\bfseries\fontsize{22}{26}\selectfont\color{ink}\addfontfeature{LetterSpace=1.5}MOHAMMADREZA POURGHORBAN}\par
+  \vspace{4pt}
+  {\fontsize{10.5}{13}\selectfont\itshape\color{graytext}Software Engineer}\par
+  \vspace{6pt}
+  {\fontsize{9}{11}\selectfont \href{mailto:m.pourghorban2004@gmail.com}{m.pourghorban2004@gmail.com} · \href{tel:+989331080501}{+98 933 108 0501} · \href{https://poury.ir}{poury.ir}}\par
+  \vspace{2pt}
+  {\fontsize{9}{11}\selectfont \href{https://linkedin.com/in/poury}{linkedin.com/in/poury} · \href{https://github.com/Pourghorban}{github.com/Pourghorban}}\par
+  \vspace{2pt}
+  {\fontsize{9}{11}\selectfont Fardis, Alborz, Iran}\par
+\end{center}
+\vspace{10pt}
+\noindent\textcolor{ink}{\rule{\linewidth}{1.4pt}}\par
+\vspace{2pt}
+\noindent\textcolor{lightrule}{\rule{\linewidth}{0.4pt}}\par
+\vspace{6pt}
+
+% ================= SUMMARY =================
+\section{Summary}
+\sectionrule
+\noindent
+Software engineer with four years of experience designing and building enterprise systems for banking, petrochemical, and government clients. At Archer --- a transaction and contract management platform for a national bank --- responsible for architecture and delivery from the ground up to UAT in seven months with a three-person team. Experienced in owning a system end to end, from requirements analysis and data modeling through deployment and the underlying infrastructure. Works primarily in the .NET ecosystem with Domain-Driven Design and distributed architectures, alongside AI-assisted development workflows that increase delivery speed without compromising quality.
+
+% ================= EXPERIENCE =================
+\section{Experience}
+\sectionrule
+
+\entryhead{Pishgam Binesh Information Technology --- Tehran}{Sept 2023 -- Present}
+\entrysub{Senior Backend Developer · Product Owner · System Administrator}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Own product definition across multiple enterprise modules --- translating stakeholder requirements into specifications, data models, and staged implementation plans, removing the back-and-forth between the engineering team and the client.
+  \item Design and build enterprise systems on .NET 8 with Domain-Driven Design, Clean Architecture, and CQRS, including REST and SOAP integration layers and SQL Server stored procedures and views for high-volume processing and reporting.
+  \item Introduced an AI-assisted development workflow across the team --- codified engineering conventions, structured specifications, and automated post-implementation review --- raising delivery speed without degrading architectural quality.
+  \item Own the company's entire infrastructure alongside development: self-hosted GitLab, network policy and firewall on FortiGate, Windows Server and Ubuntu hosts, IIS deployments, DNS, reverse proxy, and mail infrastructure.
+  \item Model business processes in BPMN and implement them on an internal BPMS engine, matching the client's real administrative workflows rather than generic templates.
+  \item Led security hardening for AFTA compliance --- access control, secure API design, input validation, and audit logging, aligned with OWASP Top 10 and ISO/IEC 27001.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{Rahpouyan Pardazesh Gostar Sahra --- Tehran}{2022 -- 2023 (7 months)}
+\entrysub{Backend Development Intern}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Built REST web services with ASP.NET Web API, implemented authentication flows, and worked with SQL Server in a production codebase.
+\end{itemize}
+
+% ================= PROJECTS =================
+\section{Selected Projects}
+\sectionrule
+
+\entryhead{Archer --- Transaction \& Contract Management Platform}{Dec 2025 -- Present}
+\entrysub{In UAT at a national bank · 3 developers · full-time}
+\entrynote{Enterprise platform managing the complete lifecycle of transactions and contracts, built from the ground up.}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Architected a platform of 148 business modules on CQRS, DDD, and Clean Architecture over .NET 8 --- more than 3,500 REST endpoints against a 930-table domain model on EF Core 8.
+  \item Designed a role-based access control model with endpoint-level granularity, alongside JWT authentication and AES encryption, meeting the security requirements of a banking environment.
+  \item Built messaging and real-time infrastructure with MassTransit over RabbitMQ, Redis-backed SignalR, and Hangfire, isolating heavy processing from the user request path.
+  \item Established an AI-assisted delivery pipeline --- 14 codified engineering-convention skills and a requirements --- data model --- design --- staged build --- automated review cycle --- making a domain of this size deliverable by three developers.
+  \item Maintain close to 6,000 xUnit tests alongside Playwright and Vitest end-to-end coverage, running under GitHub Actions CI on every pull request.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{Support \& Requirement Intake System}{}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Built a ticketing platform for collecting requirements, bug reports, and feature requests from end users, with a technical and business review workflow on each ticket.
+  \item Connected approved items to Claude Code through MCP as structured specifications --- automating the path from end-user request to the start of development.
+  \item Integrated Active Directory for admin authentication, plus Telegram and Bale bots for automatic ticket creation and task generation in Azure TFS.
+  \item Deployed a Stalwart mail server on Windows Server with SPF/DKIM/PTR configuration and an IIS reverse proxy to provide the system's transactional email capability after migration.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{SAMAP --- Project Information Management System}{}
+\entrynote{Client: National Iranian Gas Company}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Implemented budgeting, cost estimation, warehouse management, payment approval, and WBS modules with cross-module logical controls mapped to the client's real administrative processes.
+  \item Designed operational dashboards and management reports for real-time monitoring of key project indicators.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{SAMIM --- Integrated Transaction \& Contract Management System}{}
+\entrynote{Clients: Nouri Petrochemical, Pardis Petrochemical, Bank Tejarat}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Developed core modules and redesigned workflows on an internal BPMS engine, covering the cycle from request registration through contract execution within clients' internal networks.
+\end{itemize}
+
+% ================= PRODUCTS & PERSONAL PROJECTS =================
+\section{Products \& Personal Projects}
+\sectionrule
+
+\entryhead{Mani --- Fabric Nesting Algorithm Optimization}{}
+\entrynote{Released and in end-user production}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Rewrote the nesting engine of an existing pattern-making application: raised fabric utilization from 78\% to 85\% --- a direct reduction in material waste --- while cutting runtime from 17 hours to under 2 minutes.
+  \item Designed and implemented a hardware-fingerprint-based software licensing system for commercial distribution.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{Poury-SCP --- Telegram Automation Service}{}
+\entrynote{\href{https://github.com/Pourghorban}{github.com/Pourghorban}}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item Developed and customized a dual-client userbot with 42 plugins and integrations including Azure Speech and Google Drive; fully containerized with Docker Compose and deployed to a production VPS with log rotation.
+\end{itemize}
+
+% ================= SKILLS =================
+\section{Skills}
+\sectionrule
+\skillline{Architecture \& Design}{Domain-Driven Design, Clean Architecture, CQRS, Design Patterns, System Integration, BPMS / BPMN}
+\skillline{Backend}{C\#, .NET 8, ASP.NET Core Web API, MediatR, Entity Framework Core, LINQ, REST, SOAP}
+\skillline{Data}{SQL Server (T-SQL, Stored Procedures, Views, Query Optimization), Redis}
+\skillline{Distributed \& Real-time}{MassTransit, RabbitMQ, SignalR, Hangfire}
+\skillline{Security}{OWASP Top 10, RBAC, JWT, AES, Audit Logging, Active Directory}
+\skillline{Infrastructure \& DevOps}{Windows Server, Ubuntu / Linux, IIS, Docker, GitLab, GitHub Actions, FortiGate, DNS, Reverse Proxy, VPS Administration}
+\skillline{Testing}{xUnit, Playwright, Vitest, Serilog / NLog}
+\skillline{AI-Assisted Development}{Claude Code, OpenAI Codex, GitHub Copilot, MCP Integration, Structured Prompt Engineering, Spec-driven Development}
+\skillline{Frontend}{React, TypeScript, MUI, TanStack Query (working knowledge)}
+
+% ================= EDUCATION =================
+\section{Education}
+\sectionrule
+\begin{itemize}
+  \fontsizeitem
+  \item {\bfseries B.Sc. Computer Engineering} --- Islamic Azad University of Karaj \textbar\ 2024 -- Present
+  \item {\bfseries Associate Degree, Computer Science} --- University of Qom \textbar\ 2021 -- 2023
+\end{itemize}
+
+% ================= LANGUAGES =================
+\section{Languages}
+\sectionrule
+\noindent{\fontsize{10}{12}\selectfont Persian (native) · English (intermediate --- technical reading and written communication)}
+
+\end{document}

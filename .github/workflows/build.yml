@@ -1,0 +1,75 @@
+name: Build PDFs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.tex"
+      - "fonts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex texlive-lang-arabic texlive-fonts-extra poppler-utils
+
+      - name: Compile Persian resume
+        run: |
+          xelatex -interaction=nonstopmode resume-fa.tex
+          xelatex -interaction=nonstopmode resume-fa.tex
+
+      - name: Compile English resume
+        run: |
+          xelatex -interaction=nonstopmode resume-en.tex
+          xelatex -interaction=nonstopmode resume-en.tex
+
+      - name: Check page counts (fail if > 2 pages)
+        run: |
+          for doc in resume-fa resume-en; do
+            pages=$(pdfinfo "$doc.pdf" | grep '^Pages:' | awk '{print $2}')
+            echo "$doc.pdf: $pages page(s)"
+            if [ "$pages" -gt 2 ]; then
+              echo "::error::$doc.pdf has $pages pages (max 2 allowed)"
+              exit 1
+            fi
+          done
+
+      - name: Check for Overfull hboxes (warn only)
+        run: |
+          for doc in resume-fa resume-en; do
+            if grep -q "Overfull" "$doc.log"; then
+              echo "::warning::$doc.log contains Overfull hbox warnings"
+              grep "Overfull" "$doc.log"
+            fi
+          done
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdfs
+          path: |
+            resume-fa.pdf
+            resume-en.pdf
+
+      - name: Commit rebuilt PDFs back to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- resume-fa.pdf resume-en.pdf; then
+            git add resume-fa.pdf resume-en.pdf
+            git commit -m "chore: rebuild PDFs [skip ci]"
+            git push
+          else
+            echo "No PDF changes to commit."
+          fi

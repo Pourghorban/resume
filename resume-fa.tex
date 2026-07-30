@@ -1,0 +1,218 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============ Fonts ============
+\usepackage{fontspec}
+\usepackage{xepersian}
+\settextfont[Path=fonts/,
+  BoldFont=Vazirmatn-Bold.ttf,
+  ItalicFont=Vazirmatn-Regular.ttf]{Vazirmatn-Regular.ttf}
+\setlatintextfont{Latin Modern Roman}
+
+% ============ Layout ============
+\usepackage[top=1.6cm,bottom=1.6cm,left=1.7cm,right=1.7cm]{geometry}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.0}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+% ============ Color ============
+\definecolor{ink}{HTML}{1C2A3D}
+\definecolor{graytext}{HTML}{5A6472}
+\definecolor{lightrule}{HTML}{B8BEC7}
+\definecolor{titlegray}{HTML}{4A5568}
+
+% ============ Latin helper ============
+\newcommand{\en}[1]{{\hyphenpenalty=10000\exhyphenpenalty=10000\lr{#1}}}
+
+% ============ Section style ============
+\titleformat{\section}
+  {\fontsize{12}{14}\selectfont\bfseries\color{ink}}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{7pt}{0pt}
+\newcommand{\sectionrule}{%
+  \vspace{1pt}\noindent\textcolor{lightrule}{\rule{\linewidth}{0.5pt}}\vspace{0pt}\par%
+}
+
+% ============ Bullet list style ============
+\setlist[itemize]{
+  leftmargin=1.1em,
+  itemsep=1pt,
+  topsep=1pt,
+  parsep=0pt,
+  label={\textcolor{ink}{\tiny$\blacktriangleright$}}
+}
+\newcommand{\fontsizeitem}{\fontsize{10}{11.5}\selectfont\linespread{1.15}\selectfont}
+
+% ============ Custom commands for job/project entries ============
+% \entryhead{Name}{Date}
+\newcommand{\entryhead}[2]{%
+  \noindent{\bfseries\fontsize{12}{14}\selectfont #1}\hfill{\fontsize{9}{11}\selectfont\itshape\color{graytext}#2}\par
+}
+% \entrysub{role/location line}
+\newcommand{\entrysub}[1]{%
+  \noindent{\fontsize{10}{12}\selectfont\color{graytext}#1}\par
+}
+% \entrynote{one-line status note, projects only}
+\newcommand{\entrynote}[1]{%
+  \noindent{\fontsize{9.5}{11}\selectfont\color{graytext}#1}\par
+}
+
+\begin{document}
+
+% ================= HEADER =================
+\begin{center}
+  {\bfseries\fontsize{26}{30}\selectfont\color{ink}محمدرضا پورقربان}\par
+  \vspace{4pt}
+  {\fontsize{11}{13}\selectfont\color{titlegray}\en{Software Engineer}}\par
+  \vspace{4pt}
+  {\fontsize{9}{11}\selectfont \en{\href{mailto:m.pourghorban2004@gmail.com}{m.pourghorban2004@gmail.com} · \href{tel:+989331080501}{+98 933 108 0501} · \href{https://poury.ir}{poury.ir}}}\par
+  \vspace{2pt}
+  {\fontsize{9}{11}\selectfont \en{\href{https://linkedin.com/in/poury}{linkedin.com/in/poury} · \href{https://github.com/Pourghorban}{github.com/Pourghorban}}}\par
+  \vspace{2pt}
+  {\fontsize{9}{11}\selectfont فردیس، البرز · معافیت تحصیلی}\par
+\end{center}
+\vspace{12pt}
+\noindent\textcolor{ink}{\rule{\linewidth}{1.6pt}}\par
+\vspace{2pt}
+\noindent\textcolor{lightrule}{\rule{\linewidth}{0.4pt}}\par
+\vspace{6pt}
+
+% ================= SUMMARY =================
+\section{خلاصه}
+\sectionrule
+\noindent
+مهندس نرم‌افزار با چهار سال تجربه در طراحی و توسعه سامانه‌های سازمانی برای کارفرمایان بانکی، پتروشیمی و دولتی. در «آرچر» — سامانه مدیریت معاملات و قراردادها برای یکی از بانک‌های کشور — مسئول طراحی معماری و تحویل از صفر تا \en{UAT} در هفت ماه با تیمی سه‌نفره. تجربه مالکیت یک سامانه از تحلیل نیازمندی و مدل داده تا استقرار و زیرساخت. کار عمدتاً با اکوسیستم دات‌نت، بر پایه \en{Domain-Driven Design} و معماری‌های توزیع‌شده، به‌همراه استفاده از جریان‌های توسعه مبتنی بر هوش مصنوعی برای افزایش سرعت تحویل بدون افت کیفیت.
+\vspace{4pt}
+
+% ================= EXPERIENCE =================
+\section{سوابق شغلی}
+\sectionrule
+
+\entryhead{فن‌آوری اطلاعات پیشگام بینش — تهران}{شهریور ۱۴۰۲ تا کنون}
+\entrysub{توسعه‌دهنده ارشد بک‌اند · مالک محصول · مدیر سیستم}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item مالکیت تعریف محصول در چند ماژول سازمانی — تبدیل نیازمندی ذی‌نفعان به سند مشخصات، مدل داده و برنامه پیاده‌سازی مرحله‌بندی‌شده، که رفت‌وبرگشت میان تیم فنی و کارفرما را حذف کرد.
+  \item طراحی و توسعه سامانه‌های سازمانی روی \en{.NET 8} با \en{Domain-Driven Design}، معماری تمیز و \en{CQRS}، به‌همراه لایه یکپارچه‌سازی \en{REST} و \en{SOAP} و طراحی \en{stored procedure} و \en{view} در \en{SQL Server} برای پردازش و گزارش‌گیری حجیم.
+  \item استقرار جریان توسعه مبتنی بر هوش مصنوعی در سطح تیم — کدگذاری قراردادهای مهندسی، مشخصات ساختاریافته و مرور خودکار پس از پیاده‌سازی — که سرعت تحویل را بدون افت کیفیت معماری بالا برد.
+  \item مالکیت کامل زیرساخت شرکت در کنار توسعه: \en{GitLab} خودمیزبان، سیاست شبکه و فایروال روی \en{FortiGate}، میزبان‌های \en{Windows Server} و \en{Ubuntu}، استقرار روی \en{IIS}، \en{DNS}، \en{reverse proxy} و زیرساخت ایمیل.
+  \item مدل‌سازی فرآیندهای کسب‌وکار با \en{BPMN} و پیاده‌سازی آن‌ها روی موتور \en{BPMS} داخلی، منطبق بر گردش‌کار اداری واقعی کارفرما به‌جای فرآیندهای عمومی.
+  \item رهبری امن‌سازی سامانه برای انطباق با الزامات افتا — کنترل دسترسی، طراحی امن \en{API}، اعتبارسنجی ورودی و ثبت رخداد، هم‌راستا با \en{OWASP Top 10} و \en{ISO/IEC 27001}.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{ره پویان پردازش گستر صحرا — تهران}{۱۴۰۱ تا ۱۴۰۲ (۷ ماه)}
+\entrysub{کارآموز توسعه بک‌اند}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item ساخت وب‌سرویس \en{REST} با \en{ASP.NET Web API}، پیاده‌سازی جریان احراز هویت و کار با \en{SQL Server} در یک کدبیس عملیاتی.
+\end{itemize}
+
+% ================= PROJECTS =================
+\section{پروژه‌های منتخب}
+\sectionrule
+
+\entryhead{آرچر — سامانه مدیریت معاملات و قراردادها}{آذر ۱۴۰۴ تا کنون}
+\entrysub{در مرحله \en{UAT} در یکی از بانک‌های کشور · سه توسعه‌دهنده · تمام‌وقت}
+\entrynote{پلتفرم سازمانی مدیریت چرخه کامل معاملات و قراردادها، از صفر تا تحویل.}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item معماری پلتفرمی با ۱۴۸ ماژول کسب‌وکاری بر پایه \en{CQRS}، \en{DDD} و معماری تمیز روی \en{.NET 8} — بیش از ۳٬۵۰۰ اندپوینت \en{REST} روی مدل دامنه‌ای ۹۳۰ جدولی با \en{EF Core 8}.
+  \item طراحی مدل کنترل دسترسی نقش‌محور (\en{RBAC}) با \en{granularity} در سطح اندپوینت، به‌همراه احراز هویت \en{JWT} و رمزنگاری \en{AES} — مطابق الزامات امنیتی محیط بانکی.
+  \item ساخت زیرساخت پیام‌رسانی و بی‌درنگ با \en{MassTransit} روی \en{RabbitMQ}، \en{SignalR} مبتنی بر \en{Redis} و \en{Hangfire}، برای جداسازی پردازش‌های سنگین از مسیر درخواست کاربر.
+  \item استقرار خط تولید توسعه مبتنی بر هوش مصنوعی — ۱۴ مهارت کدگذاری‌شده مقررات مهندسی و چرخه نیازمندی → مدل داده → طراحی → ساخت مرحله‌بندی‌شده → مرور خودکار — که امکان تحویل این دامنه را با تیمی سه‌نفره فراهم کرد.
+  \item نگهداری نزدیک به ۶٬۰۰۰ تست \en{xUnit} به‌همراه پوشش \en{end-to-end} با \en{Playwright} و \en{Vitest}، اجراشده تحت \en{CI} روی \en{GitHub Actions} در هر \en{pull request}.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{سامانه تیکتینگ و دریافت نیازمندی}{}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item ساخت سامانه تیکتینگ برای دریافت نیازمندی، گزارش خطا و پیشنهاد از کاربر نهایی، با گردش بررسی کارشناسی فنی و کسب‌وکار روی هر تیکت.
+  \item اتصال موارد تأییدشده به \en{Claude Code} از طریق \en{MCP} در قالب مشخصات ساختاریافته — که مسیر از درخواست کاربر نهایی تا شروع توسعه را خودکار کرد.
+  \item یکپارچه‌سازی با \en{Active Directory} برای احراز هویت مدیران، به‌همراه ربات تلگرام و بله برای ثبت خودکار تیکت و تولید تسک در \en{Azure TFS}.
+  \item راه‌اندازی میل سرور \en{Stalwart} روی \en{Windows Server} با پیکربندی \en{SPF/DKIM/PTR} و \en{reverse proxy} روی \en{IIS}، برای تأمین بستر ایمیل تراکنشی سامانه پس از مهاجرت.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{سماپ — سامانه مدیریت اطلاعات پروژه}{}
+\entrynote{کارفرما: شرکت ملی گاز ایران}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item پیاده‌سازی ماژول‌های بودجه، برآورد هزینه، مدیریت انبار، تأیید پرداخت و \en{WBS} با کنترل‌های منطقی بین‌ماژولی منطبق بر فرآیندهای اداری واقعی کارفرما.
+  \item طراحی داشبورد عملیاتی و گزارش‌های مدیریتی برای پایش بی‌درنگ شاخص‌های کلیدی پروژه.
+\end{itemize}
+
+\vspace{1pt}
+\entryhead{سمیم — سامانه یکپارچه مدیریت معاملات و قراردادها}{}
+\entrynote{کارفرمایان: پتروشیمی نوری، پتروشیمی پردیس، بانک تجارت}
+\vspace{0pt}
+\begin{itemize}
+  \fontsizeitem
+  \item توسعه ماژول‌های اصلی و بازطراحی گردش‌کارها روی موتور \en{BPMS} داخلی، پوشش‌دهنده چرخه ثبت درخواست تا اجرای قرارداد در شبکه داخلی کارفرمایان.
+\end{itemize}
+
+% ================= PERSONAL PROJECTS =================
+\section{پروژه‌های شخصی}
+\sectionrule
+
+\entryhead{مانی — بهینه‌سازی الگوریتم چیدمان پارچه}{}
+\entrynote{منتشرشده و در استفاده کاربر نهایی}
+\vspace{3pt}
+\noindent{\fontsize{10}{12}\selectfont
+بهبود موتور چیدمان (\en{nesting}) یک نرم‌افزار الگوسازی موجود: افزایش ضریب استفاده از پارچه از ۷۸٪ به ۸۵٪ — کاهش مستقیم مقدار ضایعات پارچه — با کاهش زمان اجرا از ۱۷ ساعت به کمتر از ۲ دقیقه. طراحی و پیاده‌سازی سیستم مجوز نرم‌افزاری مبتنی بر اثر انگشت سخت‌افزاری برای توزیع تجاری.\par}
+
+\vspace{1pt}
+\entryhead{\en{Poury-SCP} — سرویس خودکارسازی تلگرام}{}
+\entrynote{\en{\href{https://github.com/Pourghorban}{github.com/Pourghorban}}}
+\vspace{3pt}
+\noindent{\fontsize{10}{12}\selectfont
+توسعه و شخصی‌سازی یک یوزربات دو-کلاینتی با ۴۲ پلاگین و یکپارچگی با \en{Azure Speech}، \en{Google Drive} و چند سرویس دیگر، کانتینری‌سازی کامل با \en{Docker Compose} و استقرار روی \en{VPS} عملیاتی با \en{log rotation}.\par}
+
+% ================= SKILLS =================
+\section{مهارت‌ها}
+\sectionrule
+\begin{itemize}
+  \sloppy
+  \fontsizeitem
+  \item {\bfseries بک‌اند} — \en{C\#, .NET 8, ASP.NET Core Web API, MediatR (CQRS), Entity Framework Core, LINQ}
+  \item {\bfseries معماری} — \en{Domain-Driven Design, Clean Architecture, CQRS, Design Patterns, BPMS / BPMN}
+  \item {\bfseries داده} — \en{SQL Server (T-SQL, Stored Procedures, Views, Query Optimization), Redis}
+  \item {\bfseries پیام‌رسانی و بی‌درنگ} — \en{MassTransit, RabbitMQ, SignalR, Hangfire}
+  \item {\bfseries یکپارچگی} — \en{REST, SOAP, Active Directory, System Integration}
+  \item {\bfseries امنیت} — \en{OWASP Top 10, JWT, Permission-based Authorization, AES, Audit Logging}
+  \item {\bfseries زیرساخت} — \en{Windows Server, Ubuntu / Linux, IIS, GitLab, FortiGate, DNS, Reverse Proxy, VPS Administration}
+  \item {\bfseries فرانت‌اند} — \en{React, TypeScript, MUI, TanStack Query} (در حد کارکردی)
+  \item {\bfseries تست و انتشار} — \en{xUnit, Playwright, Vitest, GitHub Actions, Docker, Serilog / NLog, Git}
+  \item {\bfseries توسعه مبتنی بر هوش مصنوعی} — \en{Claude Code, OpenAI Codex, GitHub Copilot, MCP Integration, Structured Prompt Engineering, Spec-driven Development}
+\end{itemize}
+
+% ================= EDUCATION =================
+\section{تحصیلات}
+\sectionrule
+\begin{itemize}
+  \fontsizeitem
+  \item {\bfseries کارشناسی مهندسی کامپیوتر} — دانشگاه آزاد اسلامی کرج \en{|} ۱۴۰۳ تا کنون
+  \item {\bfseries کاردانی علوم کامپیوتر} — دانشگاه قم \en{|} ۱۴۰۰ تا ۱۴۰۲
+\end{itemize}
+
+% ================= LANGUAGES =================
+\section{زبان‌ها}
+\sectionrule
+\noindent{\fontsize{10}{12}\selectfont فارسی (زبان مادری) · انگلیسی (متوسط، مطالعه متون فنی و مکاتبه)}
+
+\end{document}
