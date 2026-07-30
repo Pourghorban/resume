@@ -74,3 +74,16 @@ jobs:
           else
             echo "No PDF changes to commit."
           fi
+
+      - name: Publish latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes="Automatically rebuilt from commit $(git rev-parse --short HEAD) on $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          if gh release view latest >/dev/null 2>&1; then
+            gh release upload latest resume-fa.pdf resume-en.pdf --clobber
+            gh release edit latest --notes "$notes"
+          else
+            gh release create latest resume-fa.pdf resume-en.pdf \
+              --title "Latest build" --notes "$notes"
+          fi
