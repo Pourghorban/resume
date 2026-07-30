@@ -22,7 +22,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            texlive-xetex texlive-lang-arabic texlive-fonts-extra poppler-utils
+            texlive-xetex texlive-lang-arabic texlive-fonts-extra \
+            texlive-fonts-recommended poppler-utils
 
       - name: Compile Persian resume
         run: |
