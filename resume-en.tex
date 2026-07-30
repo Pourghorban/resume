@@ -2,7 +2,11 @@
 
 % ============ Fonts ============
 \usepackage{fontspec}
-\setmainfont{EB Garamond}
+% EB Garamond if installed on the system, otherwise fall back to Latin Modern
+% Roman -- keeps the build portable across machines/CI where it isn't present.
+\IfFontExistsTF{EB Garamond}
+  {\setmainfont{EB Garamond}}
+  {\setmainfont{Latin Modern Roman}}
 
 % ============ Layout ============
 \usepackage[top=1.5cm,bottom=1.5cm,left=1.8cm,right=1.8cm]{geometry}
