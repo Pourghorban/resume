@@ -13,3 +13,7 @@
 
 # Preview/inspection images (regenerated, not source)
 page-*.png
+
+# Built PDFs are published to GitHub Releases, not tracked in source
+resume-en.pdf
+resume-fa.pdf

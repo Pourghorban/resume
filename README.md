@@ -2,7 +2,7 @@
 
 LaTeX sources for my resume, in Persian and English. Built with XeLaTeX.
 
-**Latest PDFs:** [English](resume-en.pdf) · [Persian](resume-fa.pdf)
+**Latest PDFs:** [English](https://github.com/Pourghorban/resume/releases/latest/download/resume-en.pdf) · [Persian](https://github.com/Pourghorban/resume/releases/latest/download/resume-fa.pdf)
 
 ## Structure
 
